@@ -1,8 +1,70 @@
-#app {
+* {
+  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px; 
+
+}
+
+#inputContainer {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #ff96d6;
+  font-weight: bold;
 }
+
+.bigContainer {
+  background-color: #000f79;
+}
+
+.imgBackground {
+  display: flex;
+  margin: auto;
+  width: 100%;
+}
+
+
+.button {
+  border: none;
+  color: black;
+  background-color: #00f8d2;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 35px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 12px;
+  
+}
+
+.button:hover {
+  background-color: #fc96d7db;
+  color: black;
+  border: 2px solid #000000;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  gap: 70px; 
+  margin-bottom: 100px;
+}
+
+.secundContainer {
+  width: 50%;
+  height: auto;
+  margin: auto;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 35px;
+  border: 2px solid #00f8d2;
+  box-shadow: 1px 1px 15px 15px #0ff;
+
+}
+
