@@ -15,20 +15,33 @@
 }
 
 .bigContainer {
-  background-color: #000f79;
+  background-color: black;
 }
 
 .imgBackground {
   display: flex;
   margin: auto;
-  width: 100%;
+  width: 75%;
+}
+
+.allImg {
+  width: 70%;
+  height: auto;
+  border-radius: 50px; 
+  padding: 10px;
+  margin: 20px; 
+  
+}
+
+.drinkImg {
+  width: 35%;
 }
 
 
-.button {
+.button1 {
   border: none;
-  color: black;
-  background-color: #00f8d2;
+  color: #ff96d6;
+  background-color: black;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
@@ -37,33 +50,65 @@
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 50px 0px 0px 50px; 
+
+  box-shadow: 1px 1px 15px 15px #0ff;
+  margin-top: 30px;
   
 }
 
-.button:hover {
-  background-color: #fc96d7db;
-  color: black;
+.button2 {
+  border: none;
+  color: #ff96d6;
+  background-color: black;
+  
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 35px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 0px 50px 50px 0px;
+  border-left: 5px solid black;
+
+  box-shadow: 1px 1px 15px 15px #0ff;
+  margin-top: 30px;
+  
+}
+
+.button1:hover {
+  
+  color: #ff96d6;
   border: 2px solid #000000;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  
+}
+
+.button2:hover {
+  
+  color: #ff96d6;
+  border: 2px solid #000000;
+  
 }
 
 
 .buttonDiv {
   display: flex;
   justify-content: center;
-  gap: 70px; 
+  gap:18px; 
   margin-bottom: 100px;
+  
 }
 
 .secundContainer {
-  width: 50%;
+  width: 60%;
   height: auto;
   margin: auto;
   padding: 15px;
   border-radius: 10px;
   font-size: 35px;
-  border: 2px solid #00f8d2;
+  border: 2px solid #8efbfd;
   box-shadow: 1px 1px 15px 15px #0ff;
 
 }

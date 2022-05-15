@@ -1,9 +1,11 @@
 import { GameStep } from "./interfaces"
 
+
 export let gamesteps: GameStep[] = [
     {
         id: 1,
-        question: "Välkommen till After School Quiz, vill du spela?", 
+        question: "Välkommen till After School Quiz!", 
+        img: "../src/img/drink.png", 
         buttonChoices: {
             buttonGauche: { reponse: "Spela", path: 3},
             buttonDroit: { reponse: "Nej, senare", path: 2}
@@ -11,14 +13,15 @@ export let gamesteps: GameStep[] = [
 
     }, {
         id: 2,
-        question: "Kom igen nu, var inte fegis, spela? ", 
+        question: "Kom igen nu, var inte blyg, spela? ", 
         buttonChoices: {
             buttonGauche: { reponse: "okejdåå", path: 3},
             buttonDroit: { reponse: "Nej, jag VILL inte!", path: 2}
         }
     }, {
         id: 3,
-        question: "Okej här kommer en klurig fråga, Vad står PDO för?", 
+        question: "Är du inte sugen på AW snart? Okej här kommer en klurig fråga, Vad står PDO för?", 
+        img: "../src/img/aw-bild1.png",
         buttonChoices: {
             buttonGauche: { reponse: "Prata, Dansa, Oändligt", path: 5},
             buttonDroit: { reponse: "PHP Data Objects", path: 4}
@@ -28,34 +31,36 @@ export let gamesteps: GameStep[] = [
         question: "Rätt svar! grymt, detta måste väl firas snart?", 
         buttonChoices: {
             buttonGauche: { reponse: "JAA!", path: 5},
-            buttonDroit: { reponse: "Nej, en annan dag", path: 7}
+            buttonDroit: { reponse: "Nej, en annan dag", path: 3}
         }
     }, {
         id: 5,
         question: "Du är definitivt sugen på en AW snart, vem ska planera det?", 
+        img: "../src/img/martin.jpg",
         buttonChoices: {
             buttonGauche: { reponse: "Lisas Event AB", path: 7},
             buttonDroit: { reponse: "Martins Event AB", path: 6}
         }
     }, {
         id: 6,
-        question: "Du får en annan fråga här, Vad betyder förkortning www?", 
+        question: "Martin har inte vaknat än, Du får en annan fråga här, Vad betyder förkortning www?", 
         buttonChoices: {
-            buttonGauche: { reponse: "Why worry, world", path: 4},
-            buttonDroit: { reponse: "World wide web", path: 8}
+            buttonGauche: { reponse: "World Wide Web", path: 4},
+            buttonDroit: { reponse: "Worlds wildest (w)Party", path: 5}
         }
     },{
         id: 7,
-        question: "vad är det för dag idag?", 
+        question: "Vad är det för dag idag?", 
         buttonChoices: {
-            buttonGauche: { reponse: "Fettisdag", path: 3},
-            buttonDroit: { reponse: "Partydag", path: 5}
+            buttonGauche: { reponse: "Bouledag", path: 8},
+            buttonDroit: { reponse: "Partydag", path: 8}
         }
     },{
         id: 8,
-        question: "Grymt jobbat! Vill du köra om Quizen?", 
+        question: "Grymt! Då ska Lisa planera en AW snart igen. Vill du köra om Quizen?", 
+        img: "../src/img/boule-img.png", 
         buttonChoices: {
-            buttonGauche: { reponse: "JAAA", path: 3},
+            buttonGauche: { reponse: "JAAA", path: 1},
             buttonDroit: { reponse: "Nej, jag vill ut på en AW", path: 5}
         }
     }
