@@ -10,27 +10,28 @@ let buttonDroit = document.getElementById("buttonRight") as HTMLElement
 
 function onLoad(): void {
 
-  renderStep(); 
-
+  renderStep();  
+  //startMusic();
 }
+
+/* function startMusic(): void {
+
+  let myMusic = new Audio("../src/img/dance-club.mp3")
+  myMusic.play(); 
+  myMusic.volume = 0.1;
+} */
 
 let gameLevels = gamesteps;  
 
 let currentStep = gamesteps[0]; 
 
-
-buttonGauche.addEventListener("click", (e) => { 
-  // Kolla upp knappen, den hålls intryckt efter click 
-  e.preventDefault();
+buttonGauche.addEventListener("click", () => { 
   nextStepGame('left'); 
   
 })
 
-buttonDroit.addEventListener("click", (e) => {
-  // Kolla upp knappen, den hålls intryckt efter click 
-  e.preventDefault();
+buttonDroit.addEventListener("click", () => {
   nextStepGame('right'); 
-  
 }) 
 
 
@@ -59,8 +60,7 @@ function renderStep(): void {
 
     otherBox?.appendChild(img)
 
-
-  }
+  } 
 
 
 }
@@ -70,11 +70,9 @@ function nextStepGame(choice: 'left' | 'right') {
   let foundStep: GameStep
 
   if(choice == "left") {
-    // Hitta leftbuttonpath på currentStep
     let step = currentStep.buttonChoices.buttonGauche?.path
     foundStep = gameLevels.find(gamesteps => gamesteps.id == step)!
   } else {
-    // Hitta rightbuttonpath på currentStep
     let step = currentStep.buttonChoices.buttonDroit?.path
     foundStep = gameLevels.find(gamesteps => gamesteps.id == step)!
   }
@@ -84,48 +82,47 @@ function nextStepGame(choice: 'left' | 'right') {
 
 }
 
+
 function renderObject(): void {
   
-  
-   if(currentStep.id && currentStep.buttonChoices.buttonGauche?.path) {
-      
-      inputText.innerText = currentStep.question
-      buttonGauche.innerText = currentStep.buttonChoices.buttonGauche!.reponse
-      buttonDroit.innerText = currentStep.buttonChoices.buttonDroit!.reponse
-      
-    } else if (currentStep.id && currentStep.buttonChoices.buttonDroit?.path) {
-      
-      inputText.innerText = currentStep.question 
-      buttonDroit.innerText = currentStep.buttonChoices.buttonDroit!.reponse
-      buttonGauche.innerText = currentStep.buttonChoices.buttonGauche!.reponse
-      
-    } 
+  if(currentStep.id && currentStep.buttonChoices.buttonGauche?.path) {
     
-    if ( currentStep.id && currentStep.img) {
+    inputText.innerText = currentStep.question
+    buttonGauche.innerText = currentStep.buttonChoices.buttonGauche!.reponse
+    buttonDroit.innerText = currentStep.buttonChoices.buttonDroit!.reponse
+    
+  } else if (currentStep.id && currentStep.buttonChoices.buttonDroit?.path) {
+    
+    inputText.innerText = currentStep.question 
+    buttonDroit.innerText = currentStep.buttonChoices.buttonDroit!.reponse
+    buttonGauche.innerText = currentStep.buttonChoices.buttonGauche!.reponse
+    
+  } 
+  
+  if ( currentStep.id && currentStep.img) {
 
-      let box = document.getElementById("inputContainer"); 
+    let box = document.getElementById("inputContainer"); 
 
-      let img = document.createElement('img')
-      img.classList.add('allImg')
-      img.src = currentStep.img
+    let img = document.createElement('img')
+    img.classList.add('allImg')
+    img.src = currentStep.img
 
-      box?.appendChild(img)
+    box?.appendChild(img)
 
 
+  }
+
+  if ( currentStep.id == 1 ) {
+    
+    let box = document.getElementById("inputContainer"); 
+    if( box && currentStep.question) {
+      
+      box.innerText = "Välkommen tillbaka till Quizen, välj rätt nu!"
+      
     }
 
-    if ( currentStep.id == 1 ) {
-      
-      let box = document.getElementById("inputContainer"); 
-      if( box && currentStep.question) {
-        
-        box.innerText = "Välkommen igen till Quizen, missa inte rätt svar nu!"
-      }
-
-    }
+  }
     
-  
-  
   
 }
 
