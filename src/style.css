@@ -16,12 +16,14 @@
 
 .bigContainer {
   background-color: black;
+  padding: 200px;
 }
 
 .imgBackground {
   display: flex;
   margin: auto;
   width: 75%;
+  margin-bottom: 10px;
 }
 
 .allImg {
@@ -57,6 +59,10 @@
   
 }
 
+.button1:active {
+  background-color: #ff96d6;
+}
+
 .button2 {
   border: none;
   color: #ff96d6;
@@ -76,6 +82,9 @@
   box-shadow: 1px 1px 15px 15px #0ff;
   margin-top: 30px;
   
+}
+.button2:active {
+  background-color: #ff96d6;
 }
 
 .button1:hover {
@@ -102,7 +111,7 @@
 }
 
 .secundContainer {
-  width: 60%;
+  width: 80%;
   height: auto;
   margin: auto;
   padding: 15px;
