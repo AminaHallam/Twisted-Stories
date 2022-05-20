@@ -12,11 +12,14 @@
   text-align: center;
   color: #ff96d6;
   font-weight: bold;
+  line-height: 2.0;
 }
 
-.bigContainer {
+body {
   background-color: black;
-  padding: 200px;
+  padding-left: 200px;
+  padding-bottom: 200px;
+  padding-right: 200px;
 }
 
 .imgBackground {
@@ -27,7 +30,7 @@
 }
 
 .allImg {
-  width: 70%;
+  width: 75%;
   height: auto;
   border-radius: 50px; 
   padding: 10px;
@@ -39,6 +42,15 @@
   width: 35%;
 }
 
+.answerInput {
+  display: none;
+}
+
+.answerBox {
+  display: block;
+  width: 30%;
+  margin-top: 30px;
+}
 
 .button1 {
   border: none;
@@ -59,8 +71,14 @@
   
 }
 
+
+
 .button1:active {
   background-color: #ff96d6;
+}
+
+.buttonHidden {
+  display: none;
 }
 
 .button2 {
