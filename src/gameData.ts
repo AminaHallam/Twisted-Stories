@@ -4,7 +4,7 @@ import { GameStep } from "./interfaces"
 export let gamesteps: GameStep[] = [
     {
         id: 1,
-        question: "Välkommen till After School Quiz!", 
+        question: { question: "Välkommen till After School Quiz!", startQts: "Välkommen tillbaka till After School Quiz! Svara rätt nu! 🎉"}, 
         img: "../src/img/drink.png", 
         buttonChoices: {
             buttonGauche: { reponse: "Spela", path: 3},
@@ -13,14 +13,14 @@ export let gamesteps: GameStep[] = [
 
     }, {
         id: 2,
-        question: "Kom igen nu, var inte blyg, spela? ", 
+        question: { question: "Kom igen nu, var inte blyg, spela? "}, 
         buttonChoices: {
             buttonGauche: { reponse: "okejdåå", path: 3},
             buttonDroit: { reponse: "Nej, jag VILL inte!", path: 2}
         }
     }, {
         id: 3,
-        question: "Är du inte sugen på AW snart? Svara på denna kluriga fråga så får vi se vart det leder. Vad står PDO för?", 
+        question: { question: "Är du inte sugen på AW snart? Svara på denna kluriga fråga så får vi se vart det leder. Vad står PDO för?"}, 
         img: "../src/img/aw-bild1.png",
         buttonChoices: {
             buttonGauche: { reponse: "Prata, Dansa, Oändligt", path: 6},
@@ -28,7 +28,7 @@ export let gamesteps: GameStep[] = [
         }
     },{
         id: 4,
-        question: "Ingen direkt AW-spirit där inte, men okej. Vad skulle du göra på den här fråga?", 
+        question: { question: "Ingen direkt AW-spirit där inte, men okej. Vad skulle du göra på den här fråga?"}, 
         img: "../src/img/sql-query.png", 
         buttonChoices: {
             buttonGauche: { reponse: "SELECT Table - Det räcker med ett bord", path: 5},
@@ -36,14 +36,14 @@ export let gamesteps: GameStep[] = [
         }
     }, {
         id: 5,
-        question: "Jamen vi kan väl grupperas vid ett bord också! HAVING a drink?", 
+        question: { question: "Jamen vi kan väl grupperas vid ett bord också! HAVING a drink?"}, 
         buttonChoices: {
             buttonGauche: { reponse: "JAA!", path: 6},
             buttonDroit: { reponse: "Nej, en annan dag", path: 8}
         }
     }, {
         id: 6,
-        question: "Du är definitivt sugen på en AW snart, vem ska planera det?", 
+        question: { question: "Du är definitivt sugen på en AW snart 🔥 Vem ska planera det?"}, 
         img: "../src/img/martin.jpg",
         buttonChoices: {
             buttonGauche: { reponse: "Lisas Event AB", path: 8},
@@ -51,38 +51,43 @@ export let gamesteps: GameStep[] = [
         }
     }, {
         id: 7,
-        question: "Martin har inte vaknat än, Du får en annan fråga här, Vad betyder förkortning www?", 
+        question: { question: "Martin har inte vaknat än, Du får en annan fråga här, Vad betyder förkortning www?"}, 
         buttonChoices: {
             buttonGauche: { reponse: "World Wide Web", path: 8},
             buttonDroit: { reponse: "Worlds wildest (w)Party", path: 6}
         }
     },{
         id: 8,
-        question: "Har du någon gång funderat på det?", 
+        question: { question: "Har du någon gång funderat på det?"}, 
         img: "../src/img/programming.png", 
+        emptyBox: true,
         buttonChoices: {
             buttonGauche: { reponse: "Welcome to the club! Fråga bara Lisa", path: 11},
             buttonDroit: { reponse: "Kanske kan fråga Martin!", path: 7}
         },
     },{
         id: 11,
-        question: "Vad hade Lisa svarat?", 
+        question: { question: "Vad hade Lisa svarat?"}, 
         img: "../src/img/afterwork.png", 
+        emptyBox: true, 
+        input: { input: "AW"}, 
         buttonChoices: {
-            buttonGauche: { reponse: "AAAAAAWWWWWWW!!!!", path: 9},
-            buttonDroit: { reponse: "AAAAAAWWWWWWWW!!!!", path: 9}
+            buttonDroit: { reponse: "Click!", path: 9}
         },
     },{
         id: 9,
-        question: "Vad är det för dag idag?", 
+        question: { question: "Vad är det för dag idag?"},
+        emptyBox: true,
+        input: { input: "Bouledag"}, 
         buttonChoices: {
-            buttonGauche: { reponse: "Bouledag", path: 10},
-            buttonDroit: { reponse: "Partydag", path: 10}
+            buttonDroit: { reponse: "Click!", path: 10}
         }
     },{
         id: 10,
-        question: "Grymt! Lisa kommer att planera en AW snart igen. Vill du köra om Quizen?", 
+        question: { question: "Grymt jobbat! Lisa kommer att planera en AW snart. Vill du köra om Quizen? 🚀 "}, 
+        input: { key: "Bouledag"},
         img: "../src/img/boule-img.png", 
+        emptyBox: true,
         buttonChoices: {
             buttonGauche: { reponse: "JAA!", path: 1},
             buttonDroit: { reponse: "Nej, jag vill ut på en AW", path: 6}

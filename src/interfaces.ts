@@ -1,18 +1,29 @@
 
 export interface GameStep {
     id: number 
-    question: string
+    question: qtsType
+    input?: inputData
     img?: string
+    emptyBox?: boolean
     buttonChoices: {
-        buttonGauche: ButtonInfo | null
-        buttonDroit?: ButtonInfo | null 
+        buttonGauche?: ButtonInfo 
+        buttonDroit: ButtonInfo 
     }
+
 };
 
-export type ButtonInfo = {
+export interface ButtonInfo {
     reponse: string
     path: number
 }; 
 
+export interface inputData {
+    input?: string
+    key?: string
+}
 
+interface qtsType {
+    question: string,
+    startQts?: string
+}
 
