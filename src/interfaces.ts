@@ -24,6 +24,6 @@ export interface inputData {
 
 interface qtsType {
     question: string,
-    startQts?: string
+    reStartQts?: string
 }
 

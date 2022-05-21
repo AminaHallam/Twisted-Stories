@@ -4,7 +4,7 @@ import { GameStep } from "./interfaces"
 export let gamesteps: GameStep[] = [
     {
         id: 1,
-        question: { question: "Välkommen till After School Quiz!", startQts: "Välkommen tillbaka till After School Quiz! Svara rätt nu! 🎉"}, 
+        question: { question: "Välkommen till After School Quiz!", reStartQts: "Välkommen tillbaka till After School Quiz! Svara rätt nu! 🎉"}, 
         img: "../src/img/drink.png", 
         buttonChoices: {
             buttonGauche: { reponse: "Spela", path: 3},
@@ -87,7 +87,6 @@ export let gamesteps: GameStep[] = [
         question: { question: "Grymt jobbat! Lisa kommer att planera en AW snart. Vill du köra om Quizen? 🚀 "}, 
         input: { key: "Bouledag"},
         img: "../src/img/boule-img.png", 
-        emptyBox: true,
         buttonChoices: {
             buttonGauche: { reponse: "JAA!", path: 1},
             buttonDroit: { reponse: "Nej, jag vill ut på en AW", path: 6}
