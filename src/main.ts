@@ -5,7 +5,6 @@ import { GameStep } from './interfaces'
 
 
 const inputText = document.querySelector<HTMLDivElement>('#inputContainer')!
-//let answerInput = document.querySelector<HTMLDivElement>('.answerInput')!
 let buttonGauche = document.getElementById("buttonLeft") as HTMLElement 
 let buttonDroit = document.getElementById("buttonRight") as HTMLElement 
 let input = document.querySelector(".buttonDiv") as HTMLInputElement
@@ -17,8 +16,8 @@ input.type = "text";
 
 // Startar musiken 
 
-/* let myMusic = new Audio("../src/img/dance-club.mp3");
-myMusic.volume = 0.1; */
+let myMusic = new Audio("../src/img/dance-club.mp3");
+myMusic.volume = 0.1;
 
 
 function onLoad(): void {
@@ -36,7 +35,16 @@ let currentStep = gamesteps[0];
 buttonGauche.addEventListener("click", () => { 
   nextStepGame('left'); 
   
-  //myMusic.play(); 
+  myMusic.play(); 
+
+  if ( currentStep.question.reStartQts ) {
+    myMusic.pause(); 
+  } 
+
+  if ( currentStep.emptyBox ) {
+        
+    answerInput.value = ""
+  } 
        
 })
   
@@ -50,8 +58,6 @@ buttonDroit.addEventListener("click", () => {
       input?.appendChild(answerInput)
       let inputValue = answerInput.value
       
-      console.log(currentStep.input.key)
-      console.log(inputValue)
 
       if ( inputValue ) {
         
@@ -59,22 +65,25 @@ buttonDroit.addEventListener("click", () => {
 
           inputValue = currentStep.input.key
           inputText.innerText = inputValue +  " stämmer väl " + ", " + currentStep.question.question
-          console.log(inputValue)
 
         } else {
 
-          inputText.innerText = inputValue + " Stämmer inte tyvärr men" +  ", " + currentStep.question.question
+          inputText.innerText = inputValue + " Stämmer tyvärr inte men" +  ", " + currentStep.question.question
           
-          console.log(inputValue)
         }
 
       }
       
+      
       answerInput.classList.remove("answerBox")
       buttonGauche.classList.remove("buttonHidden")
+      
+      if ( currentStep.emptyBox ) {
+        
+          answerInput.value = ""
+        } 
+    } 
 
-  
-    }
   
 }) 
 
@@ -162,8 +171,6 @@ function renderObject(): void {
 
     let inputValue = answerInput.value 
 
-    console.log(inputValue)
-
 
     if ( currentStep.input.input == "AW" && inputValue === "" ) {
 
@@ -175,22 +182,20 @@ function renderObject(): void {
 
     } else {
 
-      inputText.innerText = inputValue + " Stämmer inte tyvärr men" +  ", " + currentStep.question.question
+      inputText.innerText = inputValue + " Stämmer tyvärr inte men" +  ", " + currentStep.question.question
+
+    } 
+    
+    
+    if ( answerInput ) {
+      
+      answerInput.classList.add("answerBox") 
 
     } 
 
     if ( currentStep.emptyBox && inputValue) {
       
       answerInput.value = ""
-    }
-    
-
-
-    
-    if ( answerInput ) {
-      
-      answerInput.classList.add("answerBox") 
-
     } 
 
 
@@ -218,13 +223,11 @@ function renderObject(): void {
 
   } 
 
-  if ( currentStep.question.startQts ) {
+  if ( currentStep.question.reStartQts ) {
     
-    inputText.innerText = currentStep.question.startQts
-    //myMusic.pause(); 
-    
+    inputText.innerText = currentStep.question.reStartQts
+    answerInput.value = ""
   }
-  
   
 }
 
