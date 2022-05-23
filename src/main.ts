@@ -7,10 +7,11 @@ import { GameStep } from './interfaces'
 const inputText = document.querySelector<HTMLDivElement>('#inputContainer')!
 let buttonGauche = document.getElementById("buttonLeft") as HTMLElement 
 let buttonDroit = document.getElementById("buttonRight") as HTMLElement 
-let input = document.querySelector(".buttonDiv") as HTMLInputElement
-let answerInput = document.createElement('input'); 
-input.type = "text"; 
+let input = document.querySelector(".buttonDiv") as HTMLDivElement
+let answerInput = document.querySelector('.answerInput') as HTMLInputElement
 
+
+let inputValue:string
 
 
 
@@ -37,53 +38,12 @@ buttonGauche.addEventListener("click", () => {
   
   myMusic.play(); 
 
-  if ( currentStep.question.reStartQts ) {
-    myMusic.pause(); 
-  } 
-
-  if ( currentStep.emptyBox ) {
-        
-    answerInput.value = ""
-  } 
-       
 })
-  
+
+
 buttonDroit.addEventListener("click", () => {
+  
   nextStepGame('right'); 
-    
-    
-    
-    if ( currentStep.input?.key ) {
-
-      input?.appendChild(answerInput)
-      let inputValue = answerInput.value
-      
-
-      if ( inputValue ) {
-        
-        if (inputValue == currentStep.input.key ) {
-
-          inputValue = currentStep.input.key
-          inputText.innerText = inputValue +  " stämmer väl " + ", " + currentStep.question.question
-
-        } else {
-
-          inputText.innerText = inputValue + " Stämmer tyvärr inte men" +  ", " + currentStep.question.question
-          
-        }
-
-      }
-      
-      
-      answerInput.classList.remove("answerBox")
-      buttonGauche.classList.remove("buttonHidden")
-      
-      if ( currentStep.emptyBox ) {
-        
-          answerInput.value = ""
-        } 
-    } 
-
   
 }) 
 
@@ -91,6 +51,8 @@ buttonDroit.addEventListener("click", () => {
 function renderStep(): void {
 
   inputText.innerText = currentStep.question.question
+
+
   if(buttonDroit.id && currentStep.buttonChoices.buttonDroit?.reponse) {
     buttonDroit.textContent = currentStep.buttonChoices.buttonDroit?.reponse
   }
@@ -98,7 +60,7 @@ function renderStep(): void {
     buttonGauche.textContent = currentStep.buttonChoices.buttonGauche?.reponse
   }
 
-  if ( currentStep.id == 1 && currentStep.img) {
+  if ( currentStep.question.firstQts && currentStep.img) {
 
     let box = document.getElementById("inputContainer"); 
 
@@ -159,76 +121,76 @@ function renderObject(): void {
     buttonDroit.innerText = currentStep.buttonChoices.buttonDroit.reponse
     
   }
+
+  input?.appendChild(answerInput)
   
   
-  if ( currentStep.input) {
-
-    if ( !currentStep.input.key ) {
-
-      input?.appendChild(answerInput)
-    }
+  if ( currentStep.buttonAnswer ) {
     
-
-    let inputValue = answerInput.value 
-
-
-    if ( currentStep.input.input == "AW" && inputValue === "" ) {
-
-      inputText.innerText = currentStep.question.question
-
-    } else if ( (currentStep.input.input === "Bouledag" && inputValue === "AW") ) {
-      
-      inputText.innerText = inputValue +  " stämmer väl " + ", " + currentStep.question.question
-
-    } else {
-
-      inputText.innerText = inputValue + " Stämmer tyvärr inte men" +  ", " + currentStep.question.question
-
-    } 
+    answerInput.classList.add("answerBox") 
     
+    answerInput.addEventListener("keypress", (e) => {
+      if(e.key === "Enter"){
+        e.preventDefault()
+        
+      inputValue = answerInput.value
+      }
+     
+    })
+ 
     
-    if ( answerInput ) {
-      
-      answerInput.classList.add("answerBox") 
-
-    } 
-
-    if ( currentStep.emptyBox && inputValue) {
-      
-      answerInput.value = ""
-    } 
-
-
-  } else if ( answerInput && !currentStep.input ) {
-
+  } else{
+    
     buttonGauche.classList.remove("buttonHidden")
     
     answerInput.classList.add("answerInput")  
     
     answerInput.classList.remove("answerBox")
+    
+  }
+
+
+  if(inputValue){
+    if (inputValue === currentStep.input!.key!) {
+        
+      inputText.innerText = inputValue +  " stämmer väl " + ", " + currentStep.question.question
+      
+    }  else {
+      
+      inputText.innerText = inputValue + " Stämmer tyvärr inte men" +  ", " + currentStep.question.question
+      
+    }
+  
 
   }
-   
+
   
   
   if ( currentStep.id && currentStep.img) {
-
+    
     let box = document.getElementById("inputContainer"); 
-
+    
     let img = document.createElement('img')
     img.classList.add('allImg')
     img.src = currentStep.img
-
-    box?.appendChild(img)
-
-  } 
-
-  if ( currentStep.question.reStartQts ) {
     
-    inputText.innerText = currentStep.question.reStartQts
-    answerInput.value = ""
-  }
+    box?.appendChild(img)
+    
+  } 
   
+  
+  if ( currentStep.emptyBox ) {
+    
+      answerInput.value = ""
+     
+      console.log(inputValue);
+    
+  } 
+  if(currentStep.restart){
+    buttonGauche.addEventListener("click",()=>{
+      location.reload()
+    })
+  }
 }
 
 

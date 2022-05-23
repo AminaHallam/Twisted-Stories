@@ -5,6 +5,8 @@ export interface GameStep {
     input?: inputData
     img?: string
     emptyBox?: boolean
+    buttonAnswer?: boolean
+    restart?:boolean
     buttonChoices: {
         buttonGauche?: ButtonInfo 
         buttonDroit: ButtonInfo 
@@ -14,16 +16,15 @@ export interface GameStep {
 
 export interface ButtonInfo {
     reponse: string
-    path: number
+    path?: number
 }; 
 
 export interface inputData {
-    input?: string
     key?: string
 }
 
 interface qtsType {
     question: string,
-    reStartQts?: string
+    firstQts?: boolean
 }
 

@@ -13,6 +13,10 @@
   color: #ff96d6;
   font-weight: bold;
   line-height: 2.0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 body {
