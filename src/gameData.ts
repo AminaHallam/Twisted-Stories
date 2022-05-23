@@ -4,8 +4,9 @@ import { GameStep } from "./interfaces"
 export let gamesteps: GameStep[] = [
     {
         id: 1,
-        question: { question: "Välkommen till After School Quiz!", reStartQts: "Välkommen tillbaka till After School Quiz! Svara rätt nu! 🎉"}, 
+        question: { question: "Välkommen till After School Quiz! 🎉", firstQts: true}, 
         img: "../src/img/drink.png", 
+        
         buttonChoices: {
             buttonGauche: { reponse: "Spela", path: 3},
             buttonDroit: { reponse: "Nej, senare", path: 2}
@@ -59,8 +60,7 @@ export let gamesteps: GameStep[] = [
     },{
         id: 8,
         question: { question: "Har du någon gång funderat på det?"}, 
-        img: "../src/img/programming.png", 
-        emptyBox: true,
+        img: "../src/img/programming.png",
         buttonChoices: {
             buttonGauche: { reponse: "Welcome to the club! Fråga bara Lisa", path: 11},
             buttonDroit: { reponse: "Kanske kan fråga Martin!", path: 7}
@@ -69,8 +69,7 @@ export let gamesteps: GameStep[] = [
         id: 11,
         question: { question: "Vad hade Lisa svarat?"}, 
         img: "../src/img/afterwork.png", 
-        emptyBox: true, 
-        input: { input: "AW"}, 
+        buttonAnswer: true,
         buttonChoices: {
             buttonDroit: { reponse: "Click!", path: 9}
         },
@@ -78,17 +77,20 @@ export let gamesteps: GameStep[] = [
         id: 9,
         question: { question: "Vad är det för dag idag?"},
         emptyBox: true,
-        input: { input: "Bouledag"}, 
+        buttonAnswer:true, 
+        input: { key: "AW"}, 
         buttonChoices: {
             buttonDroit: { reponse: "Click!", path: 10}
         }
     },{
         id: 10,
         question: { question: "Grymt jobbat! Lisa kommer att planera en AW snart. Vill du köra om Quizen? 🚀 "}, 
-        input: { key: "Bouledag"},
+        input: { key: "Bouldag"},
+        emptyBox: true,
         img: "../src/img/boule-img.png", 
+        restart:true,
         buttonChoices: {
-            buttonGauche: { reponse: "JAA!", path: 1},
+            buttonGauche: { reponse: "JAA!"},
             buttonDroit: { reponse: "Nej, jag vill ut på en AW", path: 6}
         }
     }
