@@ -17,8 +17,8 @@ let inputValue:string
 
 // Startar musiken 
 
-let myMusic = new Audio("../src/img/dance-club.mp3");
-myMusic.volume = 0.1;
+/* let myMusic = new Audio("../src/img/dance-club.mp3");
+myMusic.volume = 0.1;  */
 
 
 function onLoad(): void {
@@ -36,7 +36,7 @@ let currentStep = gamesteps[0];
 buttonGauche.addEventListener("click", () => { 
   nextStepGame('left'); 
   
-  myMusic.play(); 
+  //myMusic.play(); 
 
 })
 
@@ -163,7 +163,6 @@ function renderObject(): void {
   
 
   }
-
   
   
   if ( currentStep.id && currentStep.img) {
@@ -182,8 +181,6 @@ function renderObject(): void {
   if ( currentStep.emptyBox ) {
     
       answerInput.value = ""
-     
-      console.log(inputValue);
     
   } 
   if(currentStep.restart){
@@ -191,6 +188,14 @@ function renderObject(): void {
       location.reload()
     })
   }
+
+  if(currentStep.secondChoice) {
+    buttonGauche.classList.add("buttonHidden")
+    buttonDroit.addEventListener("click",()=>{
+      location.reload()
+    })
+  }
+  
 }
 
 
