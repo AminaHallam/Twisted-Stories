@@ -7,9 +7,10 @@ export interface GameStep {
     emptyBox?: boolean
     buttonAnswer?: boolean
     restart?:boolean
+    secondChoice?:boolean
     buttonChoices: {
         buttonGauche?: ButtonInfo 
-        buttonDroit: ButtonInfo 
+        buttonDroit?: ButtonInfo 
     }
 
 };

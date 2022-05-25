@@ -91,9 +91,20 @@ export let gamesteps: GameStep[] = [
         restart:true,
         buttonChoices: {
             buttonGauche: { reponse: "JAA!"},
-            buttonDroit: { reponse: "Nej, jag vill ut på en AW", path: 6}
+            buttonDroit: { reponse: "Nej, jag vill ut på en AW", path: 12}
+        }
+    },{
+        id: 12,
+        question: { question: "🔥 Håll utkik efter inbjudan 🔥"}, 
+        emptyBox: true,
+        img: "../src/img/After-Work-widget.png", 
+        restart:true,
+        secondChoice:true,
+        buttonChoices: {
+            buttonDroit: { reponse: "YEES! 🎉 "}
         }
     }
+
 
 
 ]
