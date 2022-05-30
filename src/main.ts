@@ -18,7 +18,7 @@ let inputValue:string
 // Startar musiken 
 
 /* let myMusic = new Audio("../src/img/dance-club.mp3");
-myMusic.volume = 0.1;  */
+myMusic.volume = 0.1;   */
 
 
 function onLoad(): void {
@@ -151,7 +151,7 @@ function renderObject(): void {
 
 
   if(inputValue){
-    if (inputValue === currentStep.input!.key!) {
+    if (inputValue === currentStep.input?.key!) {
         
       inputText.innerText = inputValue +  " stämmer väl " + ", " + currentStep.question.question
       
@@ -162,10 +162,33 @@ function renderObject(): void {
     }
   
 
+  } 
+  
+  
+  
+  
+  if ( currentStep.emptyBox ) {
+    
+    answerInput.value = ""
+    
+    
+  } 
+  if(currentStep.restart){
+    buttonGauche.addEventListener("click",()=>{
+      location.reload()
+    })
   }
   
+  if(currentStep.secondChoice) {
+    inputText.innerText = currentStep.question.question
+    buttonGauche.classList.add("buttonHidden")
+    buttonDroit.addEventListener("click",()=>{
+      location.reload()
+      
+    })
+  }
   
-  if ( currentStep.id && currentStep.img) {
+  if (currentStep.img) {
     
     let box = document.getElementById("inputContainer"); 
     
@@ -176,26 +199,6 @@ function renderObject(): void {
     box?.appendChild(img)
     
   } 
-  
-  
-  if ( currentStep.emptyBox ) {
-    
-      answerInput.value = ""
-    
-  } 
-  if(currentStep.restart){
-    buttonGauche.addEventListener("click",()=>{
-      location.reload()
-    })
-  }
-
-  if(currentStep.secondChoice) {
-    buttonGauche.classList.add("buttonHidden")
-    buttonDroit.addEventListener("click",()=>{
-      location.reload()
-    })
-  }
-  
 }
 
 
